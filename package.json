@@ -1,0 +1,17 @@
+{
+  "name": "video-upload-website",
+  "version": "1.0.0",
+  "description": "Video upload website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "ejs": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
