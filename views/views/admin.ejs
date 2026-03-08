@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Admin Panel</h1>
+        <div class="upload-section">
+            <h2>📤 Upload Video</h2>
+            <form action="/admin/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="video" accept="video/*" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <h2>📹 Videos (<%= videos.length %>)</h2>
+        <% if (videos.length > 0) { %>
+            <div class="video-list">
+                <% videos.forEach(function(video) { %>
+                    <div class="video-item">
+                        <video controls width="100%">
+                            <source src="<%= video.url %>">
+                        </video>
+                        <p><%= video.name %></p>
+                        <p><%= video.size %></p>
+                        <button onclick="deleteVideo('<%= video.name %>')">Delete</button>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No videos yet</p>
+        <% } %>
+        <p><a href="/">View Site</a></p>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
