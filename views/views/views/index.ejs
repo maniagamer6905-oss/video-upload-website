@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎥 Video Gallery</h1>
+        <% if (videos.length > 0) { %>
+            <div class="video-grid">
+                <% videos.forEach(function(video) { %>
+                    <div class="video-card">
+                        <video controls width="100%">
+                            <source src="<%= video.url %>">
+                        </video>
+                        <p><%= video.name %></p>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p class="no-videos">No videos yet</p>
+        <% } %>
+        <p><a href="/admin/login">🔐 Admin Login</a></p>
+    </div>
+</body>
+</html>
